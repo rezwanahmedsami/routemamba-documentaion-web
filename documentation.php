@@ -17,10 +17,25 @@ $parser = new Parsedown();
   <meta name="viewport" content="width=device-width, initial-scale=1,
       minimum-scale=1.0, shrink-to-fit=no">
   <link href="assets/images/favicon.png" rel="icon" />
-  <title>Documentation | Your ThemeForest item Name</title>
-  <meta name="description" content="Your ThemeForest item Name and
-      description">
-  <meta name="author" content="harnishdesign.net">
+  <title>Documentation | Routemamba js</title>
+  <meta name="description" content="Routemamba is a powerful JavaScript routing library for building single-page applications. This documentation provides comprehensive guides, examples, and API reference to help you get started with Routemamba.">
+  <meta name="keywords" content="Routemamba, JavaScript routing, single-page applications, documentation, routing library, API reference">
+  <meta name="author" content="Your Name">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph meta tags -->
+  <meta property="og:title" content="Routemamba Documentation">
+  <meta property="og:description" content="Routemamba is a powerful JavaScript routing library for building single-page applications. This documentation provides comprehensive guides, examples, and API reference to help you get started with Routemamba.">
+  <meta property="og:image" content="https://routemamba.com/assets/images/logo.png">
+  <meta property="og:url" content="http://routemamba.com/documentation">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Routemamba Documentation">
+  <meta name="twitter:description" content="Routemamba is a powerful JavaScript routing library for building single-page applications. This documentation provides comprehensive guides, examples, and API reference to help you get started with Routemamba.">
+  <meta name="twitter:image" content="https://routemamba.com/assets/images/logo.png">
 
   <!-- Stylesheet
 ============================== -->

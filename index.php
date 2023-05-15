@@ -18,14 +18,14 @@
       <meta property="og:url" content="https://routemamba.com/">
       <meta property="og:title" content="Routemamba - a javascript library.">
       <meta property="og:description" content="Routemamba is a js library to develop single page web applications easily, specially for php webapp. ">
-      <meta property="og:image" content="https://routemamba.com/images/web-rm-banner.png">
+      <meta property="og:image" content="https://routemamba.com/assets/images/logo.png">
 
       <!-- Twitter -->
       <meta property="twitter:card" content="summary_large_image">
       <meta property="twitter:url" content="https://routemamba.com/">
       <meta property="twitter:title" content="Routemamba - a javascript library.">
       <meta property="twitter:description" content="Routemamba is a js library to develop single page web applications easily, specially for php webapp. ">
-      <meta property="twitter:image" content="https://routemamba.com/images/web-rm-banner.png">
+      <meta property="twitter:image" content="https://routemamba.com/assets/images/logo.png">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
