@@ -482,7 +482,7 @@ html, body {
                 <!-- <div class="container"> -->
                 <!-- <div class="row"> -->
                 <!-- <div class="d-flex justify-content-center align-items-center"> -->
-                <p>&copy; 2023 Your Company. All rights reserved.</p>
+                <p>&copy; 2023 Routemamba. All rights reserved.</p>
                 <!-- </div> -->
                 <!-- </div> -->
                 <!-- </div> -->
