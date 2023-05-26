@@ -318,6 +318,11 @@ routemamba.registerMetaUrl('inc/meta-content.php');
                   information from the meta content due to it loading after
                   document ready. To fix this problem, you need to add
                   additional meta info using PHP. More info in <a href="#introduction">SEO configuration.</a></p>
+
+                  <p><strong>Await Rendering: </strong><br> RouteMamba's Await Rendering feature offers developers the ability to render all components simultaneously after ensuring that all components have been loaded properly. By default, RouteMamba utilizes Await Rendering, guaranteeing a seamless rendering experience. However, if a developer prefers the traditional rendering method, they can easily switch to it by setting <code>routemamba.await_rendering(false)</code>. This flexibility allows developers to choose the rendering approach that best suits their project requirements.</p>
+                <pre><code class="language-javascript">// set meta content
+routemamba.await_rendering(true); // true / false
+                </code></pre>
               </li>
 
 
@@ -424,7 +429,7 @@ project_root
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;!-- Here The meta information will load specially for seo --&gt;
+    &lt;!-- Here The meta information will load specially for SEO --&gt;
     &lt;meta&gt;&lt;/meta&gt;
     &lt;!-- Add any additional meta tags if required --&gt;
 
@@ -435,14 +440,9 @@ project_root
     &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;!-- Header Load Section --&gt;
-    &lt;div id="header_load"&gt;&lt;/div&gt;
 
-    &lt;!-- Root Container --&gt;
-    &lt;div id="root"&gt;&lt;/div&gt;
-
-    &lt;!-- Footer Load Section --&gt;
-    &lt;div id="footer_load"&gt;&lt;/div&gt;
+    &lt;!-- To load all components in page, root is required --&gt;
+    &lt;root&gt;&lt;/root&gt;
 
     &lt;!-- Include your app.js file --&gt;
     &lt;script src="./web/app.js"&gt;&lt;/script&gt;
@@ -471,30 +471,15 @@ project_root
             <pre><code class="language-php">&lt;!DOCTYPE html&gt;
     &lt;html lang="en"&gt;
     &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
       &lt;meta&gt;
       &lt;?php
-        $route = basename($_SERVER['PHP_SELF']);
-        
-        // Set the appropriate title based on the current route
-        switch ($route) {
-          case 'index.php':
-            $title = 'Home';
-            break;
-          case 'about.php':
-            $title = 'About';
-            break;
-          case 'privacy.php':
-            $title = 'Privacy';
-            break;
-          default:
-            $title = 'Home';
-            break;
-        }
+      include 'inc/meta-content.php';
       ?&gt;
-      
-      &lt;meta charset="UTF-8"&gt;
-      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-      &lt;title&gt;&lt;?php echo $title; ?&gt;&lt;/title&gt;
+    
       &lt;/meta&gt;
       
       &lt;script src="https://cdn.rezwanahmodsami.com/routemamba/v2.0.x/routemamba.min.js"&gt;&lt;/script&gt;
@@ -509,26 +494,27 @@ project_root
               file:</h4>
 
             <pre><code class="language-php">&lt;?php
-      if (isset($_GET['route'])) {
-        switch ($_GET['route']) {
-          case 'index.php':
-            $title = 'Home';
-            break;
-          case 'about.php':
-            $title = 'About';
-            break;
-          case 'privacy.php':
-            $title = 'Privacy';
-            break;
-          default:
-            $title = 'Home';
-            break;
-        }
+            if (isset($_GET['route'])) {
+        $route = $_GET['route'];
+      }else {
+        $route = basename($_SERVER['PHP_SELF']);
+      }
+
+      switch ($route) {
+        case '/' || 'index.php':
+          $title = 'Home';
+          break;
+        case 'about.php':
+          $title = 'About';
+          break;
+
+        default:
+        echo '&lt;script&gt;&lt;alert("'.$route.'")&gt;&lt;/script&gt;';
+          $title = 'Unknown';
+          break;
       }
     ?&gt;
       
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;&lt;?php echo $title; ?&gt;&lt;/title&gt;</code></pre>
             <p>In the <code>meta-content.php</code> file, we handle dynamic
               meta content generation. Based on the current route, we set the
@@ -590,7 +576,7 @@ routemamba.register_http_routes([
     method: "GET",
     meta_loader: true,
     content_url: "content/home.php",
-    container: "#root",
+    
     data: {},
     preloader: 'loading...',
     error_content: 'error',
@@ -601,7 +587,7 @@ routemamba.register_http_routes([
     method: "GET",
     meta_loader: true,
     content_url: "content/about.php",
-    container: "#root",
+    
     data: {},
     preloader: 'loading...',
     error_content: 'error',
@@ -612,7 +598,7 @@ routemamba.register_http_routes([
     method: "GET",
     meta_loader: true,
     content_url: "content/privacy.php",
-    container: "#root",
+    
     data: {},
     preloader: 'loading...',
     error_content: 'error',
@@ -665,7 +651,7 @@ routemamba.register_http_routes([
   routemamba.register_routes_headers([
     {
       content_url: "content/header.php",
-      container: "#header_load",
+      
       preloader: 'loading...',
       error_content: 'error',
       http_url: ["index.php", "about.php", "privacy.php"]
@@ -683,7 +669,7 @@ routemamba.register_http_routes([
             <pre><code>routemamba.register_routes_footers([
     {
       content_url: "content/footer.php",
-      container: "#footer_load",
+      
       preloader: 'loading...',
       error_content: 'error',
       http_url: ["index.php", "about.php", "privacy.php"]
@@ -839,13 +825,14 @@ routemamba.render();
             <pre><code>routemamba.registerMetaUrl("inc/meta-content.php");
 
                       routemamba.registerServerHost("http://localhost:3000/example/");
+                      routemamba.await_rendering(true); // added new feature in V4.0.0
                       
                       routemamba.register_http_routes([
                           {
                               method: "GET",
                               meta_loader: true,
                               content_url: "content/home.php",
-                              container: "#root",
+                              
                               preloader: '&lt;h1&gt;loading...&lt;/h1&gt;',
                               data: {},
                               error_content: 'error',
@@ -856,7 +843,7 @@ routemamba.render();
                             method: "GET",
                             meta_loader: true,
                             content_url: "content/home.php",
-                            container: "#root",
+                            
                             preloader: '&lt;h1&gt;loading...&lt;/h1&gt;,
                             data: {},
                             error_content: 'error',
@@ -867,7 +854,7 @@ routemamba.render();
                               method: "GET",
                               meta_loader: true,
                               content_url: "content/about.php",
-                              container: "#root",
+                              
                               preloader: '&lt;h1&gt;loading...&lt;/h1&gt;,
                               data: {},
                               error_content: 'error',
@@ -878,7 +865,7 @@ routemamba.render();
                               method: "GET",
                               meta_loader: true,
                               content_url: "content/privacy.php",
-                              container: "#root",
+                              
                               preloader: '&lt;h1&gt;loading...&lt;/h1&gt;,
                               data: {},
                               error_content: 'error',
@@ -889,7 +876,7 @@ routemamba.render();
                               method: "GET",
                               meta_loader: true,
                               content_url: "content/tabs-example.php",
-                              container: "#root",
+                              
                               preloader: '&lt;h1&gt;loading...&lt;/h1&gt;,
                               data: {},
                               error_content: 'error',
@@ -901,7 +888,7 @@ routemamba.render();
                       routemamba.register_routes_headers([
                           {
                               content_url: "content/header.php",
-                              container: "#header_load",
+                              
                               preloader: 'loading...',
                               error_content: 'error',
                               http_url: ["/","about.php", "privacy.php", "tabs-example.php"]
@@ -911,7 +898,7 @@ routemamba.render();
                       routemamba.register_routes_footers([
                           {
                               content_url: "content/footer.php",
-                              container: "#footer_load",
+                              
                               preloader: 'loading...',
                               error_content: 'error',
                               http_url: ["/","about.php", "privacy.php", "tabs-example.php"]
