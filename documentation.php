@@ -501,7 +501,7 @@ project_root
       }
 
       switch ($route) {
-        case '/' || 'index.php':
+        case '/':
           $title = 'Home';
           break;
         case 'about.php':
@@ -509,8 +509,7 @@ project_root
           break;
 
         default:
-        echo '&lt;script&gt;&lt;alert("'.$route.'")&gt;&lt;/script&gt;';
-          $title = 'Unknown';
+          $title = 'Home';
           break;
       }
     ?&gt;
