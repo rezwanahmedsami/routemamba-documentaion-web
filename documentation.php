@@ -116,6 +116,7 @@ $parser = new Parsedown();
               <li class="nav-item"><a class="nav-link" href="#project_setup">Project Setup</a></li>
               <li class="nav-item"><a class="nav-link" href="#idocs_html_structure">HTML Structure</a></li>
               <li class="nav-item"><a class="nav-link" href="#seo_configuration">SEO configuration</a></li>
+              <li class="nav-item"><a class="nav-link" href="#LanguageSupport">Language Support</a></li>
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="#routing_and_configuration">Routing and routes
@@ -528,6 +529,24 @@ project_root
               that each page has an appropriate title and meta information,
               improving the search engine visibility and ranking of your web
               application.</p>
+          </section>
+
+          <section id="LanguageSupport">
+          <h1>Language Support</h1>
+    
+          <p>The Routemamba.js library is currently supported with seo in the following languages:</p>
+          
+          <ul>
+              <li>PHP</li>
+              <li>Golang (Fiber framework) - <a href="https://github.com/rezwanahmodsami/go-fiber-routemamba-application.git" target="_blank">(Example project)</a></li>
+          </ul>
+          
+          <p>If you are using Routemamba.js with any of these languages, you can take advantage of its features and benefits.</p>
+          
+          <p>Please note that Routemamba.js does not currently support other programming languages.</p>
+          
+          <p>For more information, you can join our <b><a href="https://discord.gg/7HbVtssu" target="_blank">discord channel</a></b>.</p>
+          
           </section>
 
 
