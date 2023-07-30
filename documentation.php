@@ -37,6 +37,23 @@ $parser = new Parsedown();
   <meta name="twitter:description" content="Routemamba is a powerful JavaScript routing library for building single-page applications. This documentation provides comprehensive guides, examples, and API reference to help you get started with Routemamba.">
   <meta name="twitter:image" content="https://routemamba.com/assets/images/logo.png">
 
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJ6PY489PW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RJ6PY489PW');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TZC98TP7');</script>
+<!-- End Google Tag Manager -->
+
   <!-- Stylesheet
 ============================== -->
   <!-- Bootstrap -->
@@ -52,6 +69,10 @@ $parser = new Parsedown();
 </head>
 
 <body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZC98TP7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <!-- Preloader -->
   <div class="preloader">
     <div class="lds-ellipsis">
@@ -587,7 +608,8 @@ project_root
 
             <h3 class="section__subtitle">HTTP Routes Configuration Example</h3>
             <p>Let's take a look at an example from our test project's
-              `app.js` file to understand how to configure HTTP routes:</p>
+              `app.js` file to understand how to configure HTTP routes:</p><br>
+            <h5>For php:</h5>
             <pre><code>// HTTP routes setup
 routemamba.register_http_routes([
   {
@@ -624,6 +646,72 @@ routemamba.register_http_routes([
     http_url: "privacy.php"
   }
 ]);</code></pre>
+<br>
+<h5>For express js:</h5>
+<pre><code>
+routemamba.register_http_routes([
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/home',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt;',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/about',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt;',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/about',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/privacy',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt;',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/privacy',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/tabs-example',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt;',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/tabs-example',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/post',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt;',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/post/:id',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/news',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt;',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/news/:date/:title',
+  },
+]);
+  </code></pre>
             <p>The above code represents an array of HTTP route objects. Each
               object defines the configuration for a specific route, including
               the method, meta loader, content URL, container, preloader,
@@ -639,8 +727,6 @@ routemamba.register_http_routes([
                 whether the meta content should change for the specific route.</li>
               <li><strong>content_url:</strong> The path to the content file
                 that will be loaded for the route.</li>
-              <li><strong>container:</strong> The selector for the HTML
-                element where the content will be displayed.</li>
               <li><strong>preloader:</strong> HTML content or message to be
                 shown as a preloader while the content is loading.</li>
               <li><strong>error_content:</strong> HTML content or message to
@@ -665,6 +751,8 @@ routemamba.register_http_routes([
             <p>If you want to set different headers for specific routes, you
               can use the `register_routes_headers()` function. Here's an
               example code snippet:</p>
+              <br>
+              <h5>For php:</h5>
             <pre><code>// Set pages headers
   routemamba.register_routes_headers([
     {
@@ -675,6 +763,23 @@ routemamba.register_http_routes([
       http_url: ["index.php", "about.php", "privacy.php"]
     },
   ]);</code></pre>
+              <br>
+              <h5>For express js:</h5>
+            <pre><code>routemamba.register_routes_headers([
+  {
+    content_url: '/components/header',
+    preloader: 'loading...',
+    error_content: 'error',
+    http_url: [
+      '/',
+      '/about',
+      '/privacy',
+      '/tabs-example',
+      '/post/:id',
+      '/news/:date/:title'
+    ],
+  },
+]);</code></pre>
             <p>In the above code, an array of header objects is defined. Each
               object specifies the content URL, container selector, preloader,
               error content, and the HTTP URLs for which the header should be
@@ -684,6 +789,8 @@ routemamba.register_http_routes([
             <p>Similarly, if you want to set different footers for specific
               routes, you can use the `register_routes_footers()` function.
               Here's an example code snippet:</p>
+              <br>
+              <h5>For php:</h5>
             <pre><code>routemamba.register_routes_footers([
     {
       content_url: "content/footer.php",
@@ -693,6 +800,25 @@ routemamba.register_http_routes([
       http_url: ["index.php", "about.php", "privacy.php"]
     },
   ]);</code></pre>
+
+              <br>
+              <h5>For express js:</h5>
+            <pre><code>routemamba.register_routes_footers([
+  {
+    content_url: '/components/footer',
+    preloader: 'loading...',
+    error_content: 'error',
+    http_url: [
+      '/',
+      '/about',
+      '/privacy',
+      '/tabs-example',
+      '/post/:id',
+      '/news/:date/:title'
+    ],
+  },
+]);</code></pre>
+
             <p>In the above code, an array of footer objects is defined. Each
               object specifies the content URL, container selector, preloader,
               error content, and the HTTP URLs for which the footer should be
@@ -759,13 +885,16 @@ next.addEventListener('click', () => {
               reloading the entire website. This provides a seamless and fast
               user experience. Here's an example of how to use the
               `navigate()` method:</p>
+
+              <br>
+              <h5>For php:</h5>
             <pre><code>if (bookmarks_btn != undefined) {
    bookmarks_btn.addEventListener('click', (event) => {
       event.preventDefault(); // Stop double-click
       event.stopImmediatePropagation(); // Stop immediate propagation
 
       // routemamba.navigate(<URL here>, <Data here>, <Options here>);
-      routemamba.navigate("bookmarks.php", {
+      routemamba.navigate("/bookmarks.php", {
          id: 345345,
          name: "rezwan",
       }, {
@@ -774,7 +903,7 @@ next.addEventListener('click', () => {
       });
 
       // Additional examples:
-      routemamba.navigate("bookmarks.php?id=4545&name=rezwan", {}, {
+      routemamba.navigate("/bookmarks.php?id=4545&name=rezwan", {}, {
          meta_loader: true,
          method: "GET",
          http_url_change: true,
@@ -782,11 +911,44 @@ next.addEventListener('click', () => {
          footer_load: true
       });
 
-      routemamba.navigate("bookmarks.php?id=4545&name=rezwan", {}, {});
-      routemamba.navigate("bookmarks.php?id=4545&name=rezwan");
-      routemamba.navigate("bookmarks.php");
+      routemamba.navigate("/bookmarks.php?id=4545&name=rezwan", {}, {});
+      routemamba.navigate("/bookmarks.php?id=4545&name=rezwan");
+      routemamba.navigate("/bookmarks.php");
    });
 }
+</code></pre>
+  
+                <br>
+                <h5>For express js:</h5>
+            <pre><code>if (bookmarks_btn != undefined) {
+  bookmarks_btn.addEventListener('click', (event) => {
+    event.preventDefault(); // Stop double-click
+    event.stopImmediatePropagation(); // Stop immediate propagation
+
+    // routemamba.navigate(<URL here>, <Data here>, <Options here>);
+    routemamba.navigate('/bookmarks', {
+      id: 345345,
+      name: 'rezwan',
+    }, {
+      header_load: true,
+      footer_load: true,
+
+      // Additional examples:
+      meta_loader: true,
+      method: 'GET',
+      http_url_change: true,
+    });
+
+    routemamba.navigate('/bookmarks?id=4545&name=rezwan', {}, {});
+    routemamba.navigate('/bookmarks?id=4545&name=rezwan');
+    routemamba.navigate('/bookmarks');
+  });
+}
+// path param example:
+routemamba.navigate('/bookmarks/4545/rezwan'); // this is for path param pattern: /bookmarks/:id/:name
+// path param wwith query data date_add
+routemamba.navigate('/bookmarks/4545/rezwan?date_add=2021-01-01'); // this is for path param pattern: /bookmarks/:id/:name
+// to see more example check /projects/expressjs/ folder in routemamba github repo
 </code></pre>
             <p>In the above code, when the `bookmarks_btn` is clicked,
               the `navigate()` method is called to navigate to the
@@ -840,6 +1002,8 @@ routemamba.render();
           <section id="appjs_example_usage">
             <h4>Example Usage of app.js</h4>
             <p>Below is an example that demonstrates the usage of `app.js` from the `/example` project. The code sets up various routes, headers, footers, and defines event listeners for navigation. Let's explore the example:</p>
+
+            <h5>For php: </h5>
             <pre><code>routemamba.registerMetaUrl("inc/meta-content.php");
 
                       routemamba.registerServerHost("http://localhost:3000/example/");
@@ -972,11 +1136,197 @@ routemamba.render();
                           });
                        });
                       </code></pre>
+
+              <h5>For express js: </h5>
+              <pre><code>routemamba.registerMetaUrl('/components/meta');
+
+routemamba.registerServerHost('http://localhost:3001/');
+
+routemamba.register_http_routes([
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/home',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/about',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/about',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/privacy',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/privacy',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/tabs-example',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/tabs-example',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/post',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/post/:id',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: '/components/news',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/news/:date/:title',
+  },
+]);
+
+routemamba.register_routes_headers([
+  {
+    content_url: '/components/header',
+    preloader: 'loading...',
+    error_content: 'error',
+    http_url: [
+      '/',
+      '/about',
+      '/privacy',
+      '/tabs-example',
+      '/post/:id',
+      '/news/:date/:title'
+    ],
+  },
+]);
+
+routemamba.register_routes_footers([
+  {
+    content_url: '/components/footer',
+    preloader: 'loading...',
+    error_content: 'error',
+    http_url: [
+        '/',
+        '/about',
+        '/privacy',
+        '/tabs-example',
+        '/post/:id',
+        '/news/:date/:title'
+    ],
+  },
+]);
+
+routemamba.render();
+
+var home_btn = document.getElementById('home');
+var about_btn = document.getElementById('about');
+var privacy_btn = document.getElementById('privacy');
+var tabs_example_btn = document.getElementById('tabs-example');
+var post_btn = document.getElementById('post');
+var news_btn = document.getElementById('news');
+var back = document.getElementById('back');
+var next = document.getElementById('next');
+
+back.addEventListener('click', () => {
+  routemamba.pop_route();
+});
+
+next.addEventListener('click', () => {
+  routemamba.push_route();
+});
+
+home_btn.addEventListener('click', () => {
+  routemamba.navigate(
+    '/',
+    {},
+    {
+      header_load: true,
+      footer_load: true,
+    }
+  );
+});
+
+about_btn.addEventListener('click', () => {
+  routemamba.navigate(
+    '/about/',
+    {
+      id: 43345,
+      name: 'rezwan',
+    },
+    {
+      header_load: true,
+      footer_load: true,
+    }
+  );
+});
+
+privacy_btn.addEventListener('click', () => {
+  routemamba.navigate('/privacy');
+});
+
+
+tabs_example_btn.addEventListener('click', () => {
+  routemamba.navigate(
+    '/tabs-example/',
+    {},
+    {
+      meta_loader: true,
+      method: 'GET',
+      http_url_change: true,
+      header_load: true,
+      footer_load: true,
+    }
+  );
+});
+
+post_btn.addEventListener('click', () => {
+  routemamba.navigate(
+    '/post/56456546546/?test=1',
+    {},
+    {
+      header_load: true,
+      footer_load: true,
+    }
+  );
+});
+
+news_btn.addEventListener('click', () => {
+  routemamba.navigate(
+    '/news/01-05-2023/Currency-inflation-rate-is-higher-in-bangladesh/',
+    {},
+    {
+      header_load: true,
+      footer_load: true,
+    }
+  );
+});
+                </code></pre>
             <p>The above code attaches event listeners to the respective buttons, enabling navigation within the app. When a button is clicked, the corresponding route is loaded using `routemamba.navigate()`. You can customize the route parameters and specify options such as loading headers and footers.
 
               This example demonstrates how to configure routes, headers, footers, and handle navigation within your app using the app.js module.
 
-              Make sure to include the necessary HTML elements in your markup, such as <b>#root</b>, <b>#header_load</b>, <b>#footer_load</b>, and the navigation buttons referenced in the JavaScript code.
+              <!-- Make sure to include the necessary HTML elements in your markup, such as <b>#root</b>, <b>#header_load</b>, <b>#footer_load</b>, and the navigation buttons referenced in the JavaScript code. -->
 
               Feel free to modify the code and customize it to fit your specific application's needs.</p>
           </section>
