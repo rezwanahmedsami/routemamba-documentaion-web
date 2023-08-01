@@ -45,8 +45,50 @@ function fetchChangelogData($owner, $repo)
     return $changelog;
 }
 
+function getGitHubContributors($repoOwner, $repoName, $contribSort = 'contributions', $contribOrder = 'desc', $perPage = 10) {
+    $url = "https://api.github.com/repos/{$repoOwner}/{$repoName}/contributors?sort={$contribSort}&order={$contribOrder}&per_page={$perPage}";
+
+    // Create a new cURL handle
+    $ch = curl_init();
+
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'PHP'); // Set your app's user agent here
+
+    // You might need to set authorization headers here if your app requires authentication.
+    // For public GitHub API requests, it is usually not necessary.
+
+    // Execute the cURL request
+    $response = curl_exec($ch);
+
+    // Check for cURL errors
+    if (curl_errno($ch)) {
+        // Handle cURL error here (e.g., return an error message)
+        return array('error' => 'cURL Error: ' . curl_error($ch));
+    }
+
+    // Get the HTTP status code
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    // Close the cURL handle
+    curl_close($ch);
+
+    // Check if the request was successful (status code 200)
+    if ($httpCode === 200) {
+        // Convert JSON response to an associative array
+        return json_decode($response, true);
+    } else {
+        // If the request was not successful, you might want to handle the error appropriately.
+        // For example, you can log the error or return an error message.
+        return array('error' => 'Failed to retrieve data from GitHub API. HTTP status code: ' . $httpCode);
+    }
+}
+
+
+
 // Specify the GitHub repository owner and name
-$owner = 'rezwanahmodsami';
+$owner = 'rezwanahmedsami';
 $repo = 'routemamba';
 
 ?>
