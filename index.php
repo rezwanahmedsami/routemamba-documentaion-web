@@ -10,7 +10,7 @@ $changelog = fetchChangelogData($owner, $repo);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Routemamba - a javascript library.</title>
       <meta name="title" content="Routemamba - a javascript library.">
-      <meta name="description" content="Routemamba is a js library to develop single page web applications easily, specially for php webapp. ">
+      <meta name="description" content="Routemamba is a js library to develop single page web applications easily. Create highly customizable web apps using this library. It is designed especially for raw coders and raw projects.">
       <meta name="keywords" content="routemamba, Route mamba, route mamba, javascript library, routemamba js, Reactive appplication, react js, next js, single page web app">
       <meta name="robots" content="index, follow">
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -22,14 +22,14 @@ $changelog = fetchChangelogData($owner, $repo);
       <meta property="og:type" content="website">
       <meta property="og:url" content="https://routemamba.com/">
       <meta property="og:title" content="Routemamba - a javascript library.">
-      <meta property="og:description" content="Routemamba is a js library to develop single page web applications easily, specially for php webapp. ">
+      <meta property="og:description" content="Routemamba is a js library to develop single page web applications easily. Create highly customizable web apps using this library. It is designed especially for raw coders and raw projects.">
       <meta property="og:image" content="https://routemamba.com/assets/images/logo.png">
 
       <!-- Twitter -->
       <meta property="twitter:card" content="summary_large_image">
       <meta property="twitter:url" content="https://routemamba.com/">
       <meta property="twitter:title" content="Routemamba - a javascript library.">
-      <meta property="twitter:description" content="Routemamba is a js library to develop single page web applications easily, specially for php webapp. ">
+      <meta property="twitter:description" content="Routemamba is a js library to develop single page web applications easily. Create highly customizable web apps using this library. It is designed especially for raw coders and raw projects.">
       <meta property="twitter:image" content="https://routemamba.com/assets/images/logo.png">
 
       <!-- Google tag (gtag.js) -->
