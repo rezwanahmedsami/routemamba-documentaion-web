@@ -184,27 +184,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="lead">Building Seamless User Experiences:
               Documentation for Routemamba</p>
             <hr>
-            <p>Welcome to Routemamba, a powerful JavaScript library designed
-              to enhance PHP web applications by transforming them into
-              fully functional single-page applications (SPAs). This guide
-              will walk you through the process of getting started with
-              Routemamba and showcase its capabilities in creating dynamic
-              and engaging user experiences.</p><br>
+            <p>Welcome to Routemamba, a powerful JavaScript library designed to enhance web applications by transforming them into fully functional single-page applications (SPAs). This guide will walk you through the process of getting started with Routemamba and showcase its capabilities in creating dynamic and engaging user experiences.</p><br>
 
             <div class="introduction">
               <h2>Introduction</h2>
-              <p>Routemamba was developed with the goal of empowering PHP
-                developers to deliver a user experience on par with that of
-                Node.js applications. While PHP remains a popular choice for
-                web development, it can sometimes lag behind when it comes
-                to providing real-time interactivity and seamless page
-                transitions. That's where Routemamba steps in.By
-                incorporating Routemamba into your PHP projects, you can
-                leverage the power of JavaScript to create SPAs without the
-                need for a traditional page reload. This allows you to build
-                applications that respond to user actions instantly, deliver
-                dynamic content, and provide a smoother and more engaging
-                user experience.</p>
+              <p>Routemamba was developed with the goal of making websites single-page applications (SPAs) without the need for large dependencies or frameworks like React.js, Next.js, or Vue.js. It is specially designed for raw developers who prefer to develop their websites using custom coding and want full control over their applications. With Routemamba, you can create SPAs and enjoy dynamic user experiences without relying on extensive external libraries.
+
+              Whether you're an experienced developer looking to enhance your web applications or new to the world of SPAs, this documentation is tailored to meet your needs. With Routemamba, you can take full control over your application by custom coding, allowing you to deliver dynamic and engaging user experiences seamlessly.
+              </p>
               <p class="alert alert-info">If you have any questions that are
                 beyond the scope of this project, Please feel free to join
                 our <a target="_blank" href="https://discord.gg/7HbVtssu">Discord
@@ -215,19 +202,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <section id="idocs_start">
           <div class="getting_started">
             <h2>Getting Started</h2>
-            <p>To begin using Routemamba in your PHP projects, follow the
-              steps outlined in this documentation. You will learn how to
-              integrate the library, set up routing, handle view rendering,
-              and take advantage of the various features Routemamba offers.
-              Whether you're a seasoned PHP developer or new to the world of
-              SPAs, this documentation will provide you with the knowledge
-              and resources needed to unlock the full potential of
-              Routemamba and elevate your PHP web applications to the next
-              level.
+            <p>To begin using Routemamba in your projects, follow the steps outlined in this documentation. You will learn how to integrate the library, set up routing, and handle view rendering, among other features that Routemamba offers. Armed with this knowledge and the resources provided, you'll be able to unlock the full potential of Routemamba and elevate your web applications to the next level.
 
-              Next, let's dive into the installation process and start
-              building remarkable single-page applications with Routemamba.</p>
-            <h3>Video Tutorial</h3>
+Next, let's dive into the installation process and start building powerful single-page applications with Routemamba. Get ready to transform your projects into dynamic and interactive experiences for your users!</h3>
             <p>If you prefer a visual guide to learn Routemamba, you can check
               out our video tutorial series:</p>
 
@@ -504,7 +481,7 @@ project_root
     
       &lt;/meta&gt;
       
-      &lt;script src="https://cdn.rezwanahmodsami.com/routemamba/v2.0.x/routemamba.min.js"&gt;&lt;/script&gt;
+      &lt;script src="https://unpkg.com/routemamba/dist/routemamba.min.js"&gt;&lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;</code></pre>
             <p>In the <code>header.php</code> file, we define the HTML
@@ -526,7 +503,7 @@ project_root
         case '/':
           $title = 'Home';
           break;
-        case 'about.php':
+        case '/about.php':
           $title = 'About';
           break;
 
@@ -559,12 +536,12 @@ project_root
           
           <ul>
               <li>PHP</li>
+              <li>Javascript (Express Js) - <a href="https://github.com/rezwanahmedsami/routemamba/tree/main/projects/expressjs" target="_blank">(Example project)</a></li>
               <li>Golang (Fiber framework) - <a href="https://github.com/rezwanahmodsami/go-fiber-routemamba-application.git" target="_blank">(Example project)</a></li>
           </ul>
           
           <p>If you are using Routemamba.js with any of these languages, you can take advantage of its features and benefits.</p>
-          
-          <p>Please note that Routemamba.js does not currently support other programming languages.</p>
+      
           
           <p>For more information, you can join our <b><a href="https://discord.gg/7HbVtssu" target="_blank">discord channel</a></b>.</p>
           
@@ -621,7 +598,7 @@ routemamba.register_http_routes([
     preloader: 'loading...',
     error_content: 'error',
     http_url_change: false,
-    http_url: "index.php"
+    http_url: "/"
   },
   {
     method: "GET",
@@ -632,7 +609,7 @@ routemamba.register_http_routes([
     preloader: 'loading...',
     error_content: 'error',
     http_url_change: false,
-    http_url: "about.php"
+    http_url: "/about.php"
   },
   {
     method: "GET",
@@ -643,7 +620,7 @@ routemamba.register_http_routes([
     preloader: 'loading...',
     error_content: 'error',
     http_url_change: false,
-    http_url: "privacy.php"
+    http_url: "/privacy.php"
   }
 ]);</code></pre>
 <br>
@@ -760,7 +737,7 @@ routemamba.register_http_routes([
       
       preloader: 'loading...',
       error_content: 'error',
-      http_url: ["index.php", "about.php", "privacy.php"]
+      http_url: ["/", "/about.php", "/privacy.php"]
     },
   ]);</code></pre>
               <br>
@@ -797,7 +774,7 @@ routemamba.register_http_routes([
       
       preloader: 'loading...',
       error_content: 'error',
-      http_url: ["index.php", "about.php", "privacy.php"]
+      http_url: ["/", "/about.php", "/privacy.php"]
     },
   ]);</code></pre>
 
@@ -1004,137 +981,151 @@ routemamba.render();
             <p>Below is an example that demonstrates the usage of `app.js` from the `/example` project. The code sets up various routes, headers, footers, and defines event listeners for navigation. Let's explore the example:</p>
 
             <h5>For php: </h5>
-            <pre><code>routemamba.registerMetaUrl("inc/meta-content.php");
+            <pre><code>routemamba.registerMetaUrl('inc/meta-content.php');
 
-                      routemamba.registerServerHost("http://localhost:3000/example/");
-                      routemamba.await_rendering(true); // added new feature in V4.0.0
-                      
-                      routemamba.register_http_routes([
-                          {
-                              method: "GET",
-                              meta_loader: true,
-                              content_url: "content/home.php",
-                              
-                              preloader: '&lt;h1&gt;loading...&lt;/h1&gt;',
-                              data: {},
-                              error_content: 'error',
-                              http_url_change: false,
-                              http_url: "/"
-                           },
-                           {
-                            method: "GET",
-                            meta_loader: true,
-                            content_url: "content/home.php",
-                            
-                            preloader: '&lt;h1&gt;loading...&lt;/h1&gt;,
-                            data: {},
-                            error_content: 'error',
-                            http_url_change: false,
-                            http_url: "index.php"
-                         },
-                          {
-                              method: "GET",
-                              meta_loader: true,
-                              content_url: "content/about.php",
-                              
-                              preloader: '&lt;h1&gt;loading...&lt;/h1&gt;,
-                              data: {},
-                              error_content: 'error',
-                              http_url_change: false,
-                              http_url: "about.php"
-                           },
-                           {
-                              method: "GET",
-                              meta_loader: true,
-                              content_url: "content/privacy.php",
-                              
-                              preloader: '&lt;h1&gt;loading...&lt;/h1&gt;,
-                              data: {},
-                              error_content: 'error',
-                              http_url_change: false,
-                              http_url: "privacy.php"
-                           },
-                           {
-                              method: "GET",
-                              meta_loader: true,
-                              content_url: "content/tabs-example.php",
-                              
-                              preloader: '&lt;h1&gt;loading...&lt;/h1&gt;,
-                              data: {},
-                              error_content: 'error',
-                              http_url_change: false,
-                              http_url: "tabs-example.php"
-                           },
-                      ]);
-                      
-                      routemamba.register_routes_headers([
-                          {
-                              content_url: "content/header.php",
-                              
-                              preloader: 'loading...',
-                              error_content: 'error',
-                              http_url: ["/","about.php", "privacy.php", "tabs-example.php"]
-                           },
-                      ]);
-                      
-                      routemamba.register_routes_footers([
-                          {
-                              content_url: "content/footer.php",
-                              
-                              preloader: 'loading...',
-                              error_content: 'error',
-                              http_url: ["/","about.php", "privacy.php", "tabs-example.php"]
-                           },
-                      ]);
-                      
-                      routemamba.render();
-                      
-                      var home_btn = document.getElementById("home");
-                      var about_btn = document.getElementById("about");
-                      var privacy_btn = document.getElementById("privacy");
-                      var tabs_example_btn = document.getElementById("tabs-example");
-                      var back = document.getElementById("back");
-                      var next = document.getElementById("next");
-                      
-                      back.addEventListener('click', ()=>{
-                          routemamba.pop_route();
-                       });
-                       
-                       next.addEventListener('click', ()=>{
-                          routemamba.push_route();
-                       });
-                       
-                      
-                      home_btn.addEventListener('click', ()=>{
-                          routemamba.navigate("/", {}, {
-                              header_load: true,
-                              footer_load: true
-                          });
-                      });
-                      
-                      about_btn.addEventListener('click', ()=>{
-                          routemamba.navigate("about.php", {
-                             id: 43345,
-                             name: "rezwan"
-                          }, {
-                             header_load: true,
-                             footer_load: true
-                          });
-                       });
-                      
-                       privacy_btn.addEventListener('click', ()=>{
-                          routemamba.navigate("privacy.php");
-                       });
-                       
-                       tabs_example_btn.addEventListener('click', ()=>{
-                          routemamba.navigate("tabs-example.php", {}, {
-                             meta_loader: true,
-                             method: "GET",
-                             http_url_change: true,
-                             header_load: true,
-                             footer_load: true
-                          });
-                       });
+routemamba.registerServerHost('http://localhost:3000/example/');
+
+routemamba.register_http_routes([
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: 'content/home.php',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/example/',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: 'content/home.php',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/example/index.php',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: 'content/about.php',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/example/about.php',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: 'content/privacy.php',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/example/privacy.php',
+  },
+  {
+    method: 'GET',
+    meta_loader: true,
+    content_url: 'content/tabs-example.php',
+    preloader: '&lt;h1&gt;loading...&lt;/h1&gt',
+    data: {},
+    error_content: 'error',
+    http_url_change: false,
+    http_url: '/example/tabs-example.php',
+  },
+]);
+
+routemamba.register_routes_headers([
+  {
+    content_url: 'content/header.php',
+    preloader: 'loading...',
+    error_content: 'error',
+    http_url: [
+      '/example/',
+      '/example/about.php',
+      '/example/privacy.php',
+      '/example/tabs-example.php',
+    ],
+  },
+]);
+
+routemamba.register_routes_footers([
+  {
+    content_url: 'content/footer.php',
+    preloader: 'loading...',
+    error_content: 'error',
+    http_url: [
+      '/example/',
+      '/example/about.php',
+      '/example/privacy.php',
+      '/example/tabs-example.php',
+    ],
+  },
+]);
+
+routemamba.render();
+
+var home_btn = document.getElementById('home');
+var about_btn = document.getElementById('about');
+var privacy_btn = document.getElementById('privacy');
+var tabs_example_btn = document.getElementById('tabs-example');
+var back = document.getElementById('back');
+var next = document.getElementById('next');
+
+back.addEventListener('click', () => {
+  routemamba.pop_route();
+});
+
+next.addEventListener('click', () => {
+  routemamba.push_route();
+});
+
+home_btn.addEventListener('click', () => {
+  routemamba.navigate(
+    '/example/',
+    {},
+    {
+      header_load: true,
+      footer_load: true,
+    }
+  );
+});
+
+about_btn.addEventListener('click', () => {
+  routemamba.navigate(
+    '/example/about.php',
+    {
+      id: 43345,
+      name: 'rezwan',
+    },
+    {
+      header_load: true,
+      footer_load: true,
+    }
+  );
+});
+
+privacy_btn.addEventListener('click', () => {
+  routemamba.navigate('/example/privacy.php');
+});
+
+tabs_example_btn.addEventListener('click', () => {
+  routemamba.navigate(
+    '/example/tabs-example.php',
+    {},
+    {
+      meta_loader: true,
+      method: 'GET',
+      http_url_change: true,
+      header_load: true,
+      footer_load: true,
+    }
+  );
+});
+
                       </code></pre>
 
               <h5>For express js: </h5>
