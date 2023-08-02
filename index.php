@@ -97,7 +97,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             class="h-[70px] sm:h-[100px] w-auto sm:h-[100px]">
         </div>
         <div class="text-center">
-          <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Routemamba <?php echo $changelog[0]['version'] ?></h1>
+          <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Routemamba (<?php echo $changelog[0]['version'] ?>)</h1>
           <p class="mt-6 text-lg leading-8 text-gray-200">Create fast and interactive web applications effortlessly
             using RouteMamba, the simple yet powerful JavaScript library.</p>
           <div class="mt-10 flex items-center justify-center gap-x-6">
